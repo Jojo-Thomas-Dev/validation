@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <input type="text" class="fname" placeholder="first name">
+        <div class="one"></div>
+        <br>
+        <input type="text" class="lname" placeholder="last name">
+        <div class="two"></div>
+        <br>
+        <input type="text" class="email" placeholder="email">
+        <div class="three"></div>
+        <br>
+        <button>Submit</button>
+        <p class="four"></p>
+    </form>
+</body>
+<script>
+    var fname = document.querySelector(".fname");
+    var lname = document.querySelector(".lname");
+    var email= document.querySelector(".email");
+    var btn = document.querySelector("button")
+    let regex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/; 
+
+    var message1= document.querySelector(".one")
+    var message2 = document.querySelector(".two")
+    var message3= document.querySelector(".three")
+    var message4 = document.querySelector(".four")
+
+    btn.addEventListener("click", (e) => {
+            e.preventDefault()
+            if(!fname.value){
+                message1.style.color="red";
+                message1.innerHTML=`please fill out the form the required field is empty first name`
+            }else if (!lname.value) {
+                message2.style.color = "red";
+                message2.innerHTML = `please fill out the form the required field is empty last name`
+            }
+            else if (!email.value) {
+                message3.style.color = "red";
+                message3.innerHTML = `please fill out the form the required field is empty email`;   
+            }else if (email.value != regex){
+                message3.style.color = "red";
+                message3.innerHTML = `please fill in the email correctly`;   
+            }
+            else{
+                    message4.innerHTML = "your form has been submitted"
+            }
+})
+
+
+</script>
+</html>
